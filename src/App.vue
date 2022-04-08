@@ -1,13 +1,13 @@
 <script>
 import { RouterView } from 'vue-router'
-import Admin from '@/components/Admin.vue'
 import { useRoute } from 'vue-router'
+import LayoutAdmin from './pages/LayoutAdmin.vue'
 
 export default {
   name: 'App',
   components: {
     RouterView,
-    Admin,
+    LayoutAdmin,
   },
 
   computed: {
@@ -28,8 +28,8 @@ export default {
     <RouterView />
   </div>
   <div v-else>
-    <Admin>
+    <LayoutAdmin>
       <RouterView />
-    </Admin>
+    </LayoutAdmin>
   </div>
 </template>

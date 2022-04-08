@@ -6,6 +6,8 @@ export default createStore({
       title: '',
     },
     navActive: false,
+    events: []
+    
   },
   getters: {
   },
@@ -15,7 +17,11 @@ export default createStore({
     },
     setMenuActive(state, payload) {
       state.navActive = payload;
+    },
+    setEventSelected(state, payload) {
+      state.events = payload;
     }
+
   },
   actions: {
 

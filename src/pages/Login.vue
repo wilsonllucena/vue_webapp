@@ -67,6 +67,7 @@
 <script>
 import api from '../services/apiClient.js'
 export default {
+  layout: 'auth',
   name: 'Login',
   data: function () {
     return {
@@ -76,16 +77,14 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const response = await api.post('/auth/login', {
+      const response = await api.post('auth/login', {
         email: this.email,
         password: this.password,
       })
 
-      const { data } = response
-
       const { token, user } = response.data
-      localStorage.setItem('@DeliveryAdmin:token', token)
-      localStorage.setItem('@DeliveryAdmin:user', JSON.stringify(user))
+      localStorage.setItem('@Event:token', token)
+      localStorage.setItem('@Event:user', JSON.stringify(user))
 
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 

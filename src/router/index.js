@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import LoginView from "@/views/LoginView.vue";
-import Dashboard from "@/components/Dashboard.vue";
-import Product from "@/components/Product.vue";
-import Customer from "@/components/Customer.vue";
+import Dashboard from "@/pages/Dashboard.vue";
+import Speakers from "@/pages/Speakers.vue";
+import Login from "@/pages/Login.vue";
 
 
 const router = createRouter({
@@ -11,22 +10,17 @@ const router = createRouter({
     {
       path: "/login",
       name: "Login",
-      component: LoginView,
+      component: Login,
     },
     {
       path: "/",
       name: "Dashboard",
       component: Dashboard,
     },
-    {
-      path: "/products",
-      name: "Products",
-      component: Product,
-    },
-    {
-      path: "/customers",
-      name: "Customers",
-      component: Customer,
+     {
+      path: "/palestrantes",
+      name: "Palestrantes",
+      component: Speakers,
     },
   ],
 });
@@ -36,7 +30,7 @@ router.beforeEach((to, from, next) => {
     next();
   }
 
-  const user = localStorage.getItem("@DeliveryAdmin:user");
+  const user = localStorage.getItem("@Event:user");
 
   if (!user) {
     next("/login");
